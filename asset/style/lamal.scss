@@ -1,0 +1,130 @@
+@import 'Config';
+@import 'font.Face';
+// @include box-shadow(0px, 1px, 0px, 0px, #fff);
+// @include text-shadow(0px, 1px, 1px, #fff);
+body {
+  font-family:$Font;
+  >div{
+    &.scriptive{
+      >div{
+        >div{
+          &.scHD{
+            >ul {
+              &.scMenu{
+                >li {
+                  &:first-child, &:last-child{}
+                  &:first-child{}
+                  &:last-child{}
+                  &#lmD{
+                    width:100%;
+                    &:empty {
+                      &[data-title]{
+                        &::before{
+                        }
+                      }
+                    }
+                    input {
+                    }
+                  }
+                  &[class]{
+                    &::before{
+                      color: lighten(#000,30%);
+
+                    }
+                    &:active, &:focus, &:hover{
+                      &::before{
+                        color: $ColorMain;
+                      }
+                    }
+                    &.active {
+                      &::before{
+                        color: $ColorMain;
+                        // text-shadow:0px 1px 1px #ccc;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          &.scSB {}
+          &:last-child{}
+        }
+        &.scPanel{
+          > div {
+            // background-color:lighten(#000,30%);
+            &.scHD {}
+            &.scSB {
+              >ul {
+                @import "panel.Menu";
+              }
+            }
+          }
+          &#lPl{}
+          &#lPr{}
+        }
+        &.scMain{
+          &.overlay{
+            &::before{}
+          }
+          > div {
+            &.scHD {}
+            &.scSB {
+              border-top-color: transparent;
+            }
+          }
+        }
+        &.scNofify{
+
+          >div{
+
+          }
+        }
+      }
+    }
+    @import "screen.Splash";
+  }
+  @import "lamal.Page.home";
+  @import "lamal.Page.signin";
+  @import "lamal.Page.user";
+}
+// NOTE: iOS
+div.scriptive{
+  // border-top: $HeightStatus solid #fff;
+  &::before{
+    // top:-$HeightStatus; left: 0; right: 0;
+    // background-color:darken($ColorBackground,1%);
+    // border-bottom: 1px solid darken($ColorBackground,5%);
+    // @include box-shadow(inset, 0px, 1px, 1px,0px, rgba(0,0,0,.19));
+  }
+  >div{
+    >div{
+      &.scSB{
+        // bottom: $HeightStatus;
+      }
+    }
+  }
+}
+div{
+}
+ul {
+  list-style: none;
+  li {
+  }
+  @import "ul.Interface.home";
+  @import "ul.Interface.user";
+  @import "ul.Interface.category";
+  @import "ul.Interface.song";
+  @import "ul.Interface.lyric";
+  @import "ul.Interface.empty";
+}
+form{
+  @import "form.Interface.user";
+  @import "form.Interface.editor";
+}
+@media #{$media-mobile} {
+}
+@media #{$media-tablet} {
+}
+@media #{$media-desktop} {
+}

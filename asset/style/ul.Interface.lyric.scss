@@ -1,0 +1,104 @@
+&.lyric{
+  >li{
+    >div {
+      &.lamal{
+        position: relative;
+        padding: 2%;
+        // text-transform: capitalize;
+        h1{
+          position: inherit;
+          padding:1% 5%;
+          font-weight: lighter;
+          // font-size: 120%;
+          font-size: calc(2vh + 2vw);
+          color: #fff;
+          @include text-shadow(1px, 1px, 2px, #000);
+          // @include text-shadow(0px, 1px,0px, $ColorMain);
+          // text-transform: capitalize;
+          text-transform: uppercase;
+        }
+        span{
+          display: inline-block;
+          text-transform: capitalize;
+          color:$ColorMain;
+        }
+        >div{
+          position: inherit;
+          border: 0px solid #ccc;
+          padding:1% 5%;
+          &.chord{
+            line-height: 1em;
+            font-size: 1em;
+            text-transform: capitalize;
+            color:$ColorMain;
+            p{
+              display: inline-block;
+              background-color: $ColorMain;
+              color: #fff;
+              padding: 1px 7px;
+              // border-radius: 3px 1px 3px 1px;
+              border-radius: 2px;
+            }
+            div{
+              span{
+                margin-left: 2px;
+                padding: 3px;
+                display: inline-block;
+                // background-color: red;
+              }
+            }
+          }
+          &.chorus{
+            padding-left: 10%;
+            // @include text-shadow(0px, 1px, 1px, #ccc);
+            color: #666;
+            &:before{
+              content: attr(title);
+              position: absolute;
+              left: 7%;
+              color: red;
+            }
+          }
+          &.verse{
+
+          }
+          p{
+            position: inherit;
+            line-height: 1.3em;
+            // font-size: 1.1em;
+            font-size: calc(0.6vw + 0.8em);
+            // font-size:calc(1vw + 50%);
+            padding: 1px; margin: 1px;
+            &:hover{
+              // @include text-shadow(0px, 1px, 0px, #666);
+              color: darken(#666,25%);
+            }
+            span{
+              position: inherit;
+              top: -1.0em;
+              font-size: 0.7em;
+              // top: -1.3em;
+              // font-size: 0.6em;
+              line-height: 0.9em;
+              width: 0;
+              overflow:visible;
+              &[data-chord]{
+                &:empty{
+                  &:after{
+                    display: inline-block;
+                    border-radius: 2px;
+                    padding: 1px 2px;
+                    content: attr(data-chord);
+                    // background-color: lighten($ColorMain,20%);
+                    // color: #fff;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+}

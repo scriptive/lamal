@@ -1,0 +1,18 @@
+&.empty{
+  @include user-select();
+  text-align: center;
+  margin: 0 auto;
+  max-width: 350px;
+  display: table;
+  height: 100%;
+  >li{
+    vertical-align: middle;
+    display: table-cell;
+    >div{
+      padding:5%;
+      color: lighten(#ccc,10%);
+      font-size: 150%;
+      @include text-shadow(1px, 1px, 1px, #666);
+    }
+  }
+}

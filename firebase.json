@@ -1,0 +1,25 @@
+{
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+    ],
+    "headers": [{
+      "source" : "**",
+      "headers" : [ {
+      "key" : "LetId",
+      "value" : "LetId-sec=2"
+      } ]
+    } ]
+  },
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}

@@ -1,0 +1,58 @@
+&.user{
+  text-align: center;
+  display: block;
+  padding:1px 10px;
+  >div {
+    margin: 0 auto;
+    max-width: 350px;
+    padding: 5px 10%;
+    >p{
+      padding: 7px;
+      color: $ColorSecond;
+      >a{
+        &.external{
+          display: block;
+          background-color: #666;
+          border-radius: 100px;
+          color: #fff;
+          margin: 1px 10px;
+          padding:10px;
+          font-size: 90%;
+          text-shadow: #000 1px 1px 1px;
+          &[class^="icon-"]:before{
+            border-radius: 2px;
+            padding: 1px 3px;
+            color: #ccc;
+          }
+          &:active{
+            background-color: darken(#666,10%);
+          }
+        }
+      }
+    }
+    >input {
+      // display: block;
+      padding:9px 5%;
+      width: 90%;
+      border-radius: 100px;
+      border: 1px solid #ccc;
+      font-size: 130%;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;  
+      &:focus {
+        outline: none;
+        border: 1px solid lighten($ColorMain,10%);
+      }
+      &[type="password"]{}
+      &[type="submit"]{
+        border:0;
+        background-color: $ColorMain;
+        color: #fff;
+        // font-size: 130%;
+      }
+    }
+  }
+  &[name="login"]{
+  }
+}

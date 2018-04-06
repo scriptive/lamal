@@ -1,0 +1,132 @@
+&.song{
+  @include user-select();
+  padding: 20px;
+  // font-size: 100%;
+  font-weight: lighter;
+  >li {
+    // border-top: 1px solid lighten($ColorSecond,40%);
+    @include box-shadow(inset, 0px, 1px,1px, 1px, lighten(#ccc,1%));
+    // @include text-shadow(0px, 1px, 1px, #fff);
+    background-color: lighten(#ccc,19.5%);
+    // background-color: lighten(#ccc,15%);
+    border-radius: 4px;
+    padding: 2%;
+    // padding: 7px;
+    margin-top:7px;
+
+    >div {
+      // background-color: gray;
+      >a{
+        padding: 10px 15px;
+        // color: lighten(#666,15%);
+        color: $Color;
+        display: block;
+        // font-size: calc(1vw + 50%);
+        font-size: 120%;
+        // text-shadow:0px 0px 1px lighten(#666,25%);
+        position: relative;
+        // text-transform: uppercase;
+        text-transform: capitalize;
+        &[data-chord]{
+          &::after{
+            display: inline-block;
+            padding: 1px 5px;
+            content: attr(data-chord);
+            background-color: lighten(#666,10%);
+            // background-color: lighten($ColorMain,1%);
+            border-radius: 2px;
+            font-size: 80%;
+            color: #fff;
+            position: absolute;
+            right: 0;
+          }
+        }
+        &:hover, &:active{
+          color: darken($ColorMain,10%);
+        }
+      }
+      >p{
+        // padding: 0px 7px;
+        font-size: 80%;
+        >span{
+          display: inline-block;
+          font-size: 80%;
+        }
+        &.posts{
+          >span{
+            // border-radius: 100px;
+            padding:2px 5px;
+            color: lighten(#666,10%);
+
+            &:first-child{}
+            &:last-child{}
+            &.postUser{
+              @include text-shadow(0px, 0px, 1px, #ccc);
+            }
+            &.postDate{
+              color: #666;
+            }
+            &.postEdition{
+              // background-color: darken($ColorMain,1%);
+              // background-color: lighten(#666,30%);
+              // color: #fff;
+              // margin-right: 2px;
+              // border: 1px solid #666;
+              @include box-shadow(inset, 0px, 1px,1px, 0px, lighten(#666,20%));
+              @include text-shadow(0px, 1px, 1px, #666);
+            }
+            &.postVote{
+              // background-color: lighten(#ccc,7%);
+              // @include text-shadow(0px, 1px, 1px, #666);
+              // background-color: lighten(#666,10%);
+              // color: #fff;
+            }
+          }
+        }
+        &.meta{
+          >span{
+            border-radius: 3px;
+            padding:2px 5px;
+            color: #ccc;
+            &:empty{
+              &::after{
+                content: 'NA';
+              }
+            }
+            &:first-child{}
+            &:last-child{}
+            // &.postUser{}
+            // &.postDate{
+            //   color: #666;
+            // }
+            // &.postEdition{
+            //   background-color: lighten(#ccc,7%);
+            //   color: #fff;
+            //   margin-right: 2px;
+            // }
+            // &.postVote{
+            //   background-color: lighten(#666,10%);
+            //   color: #fff;
+            // }
+          }
+        }
+        &.lyric{
+          padding:7px 10px;
+          // color: red;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+        }
+      }
+      &.active{
+        >a{
+          color: lighten($ColorMain,1%);
+        }
+      }
+    }
+    &:first-child{
+      border-top: 0;
+    }
+  }
+}

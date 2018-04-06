@@ -1,0 +1,39 @@
+{
+  "app": {
+    "name": "lamal",
+    "library": {},
+    "dist": {
+      "file": {}
+    }
+  },
+  "individual": {
+    "chrome": {
+      "dist": {}
+    },
+    "ios": {
+      "dist": {}
+    },
+    "android": {
+      "dist": {}
+    },
+    "default": {
+      "dist": {}
+    },
+    "web": {
+      "dist": {}
+    },
+    "electron": {
+      "dist": {}
+    }
+  },
+  "gulp": {
+    "sass": {
+      "outputStyle": "compressed"
+    },
+    "js": {
+      "compress": true,
+      "preserveComments": "license"
+    },
+    "custom": {}
+  }
+}

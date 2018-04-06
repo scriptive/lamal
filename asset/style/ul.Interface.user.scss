@@ -1,0 +1,85 @@
+&.user{
+  text-align: center;
+  margin: 0 auto;
+  max-width: 350px;
+  >li{
+    padding:7px 2px;
+    >img{
+      width: 150px;
+      height: 150px;
+      border-radius: 100px;
+      background-color: #ccc;
+    }
+    >p{
+      &.userEmail{
+        color: #666;
+      }
+    }
+    >a{
+      display: block;
+      background-color: #666;
+      color: #fff;
+      border-radius: 100px;
+      cursor: pointer;
+      margin: 1px 10px;
+      padding:7px 15px;
+      font-size: 90%;
+      &:active{
+        background-color: darken(#666,10%);
+      }
+      &.signOut{
+        // display: inline-block;
+        // padding:7px 10px;
+        // border-radius: 100px;
+        // background-color: lighten($ColorMain,10%);
+        background-color: $ColorRed;
+        // border: 1px solid lighten($ColorMain,1%);
+        // color: #fff;
+      }
+      &.emailVerified{
+        background-color: $ColorRed;
+        &.active{
+          background-color: lighten($ColorMain,7%);
+        }
+      }
+    }
+    >div{
+      display: table;
+      margin: 0 auto;
+      // display: block;
+      // padding:9px 5%;
+      // width: 90%;
+      // border-radius: 100px;
+      // border: 1px solid #ccc;
+      // font-size: 130%;
+      border: 1px solid lighten($ColorMain,1%);
+      background-color: lighten($ColorMain,10%);
+      border-radius: 100px;
+      overflow: hidden;
+      >input, >button{
+        display: table-cell;
+        background-color: #fff;
+        border: 0px solid #000;
+        font-size: 120%;
+        padding:7px 10px;
+      }
+      >input{
+        padding-left:17px;
+        padding-right:17px;
+        &:focus {
+          outline: none;
+          // border: 0px solid #000;
+        }
+      }
+      >button{
+        padding-left:10px;
+        padding-right:10px;
+        border-left: 0;
+        background-color: transparent;
+        &::before{
+          color: #fff;
+        }
+      }
+    }
+  }
+}

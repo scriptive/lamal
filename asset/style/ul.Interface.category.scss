@@ -1,0 +1,62 @@
+&.category{
+  >li{
+    >div{
+      >a{
+        // display: block;
+        // background-color: gray;
+      }
+    }
+  }
+}
+&.category{
+  @include user-select();
+  padding: 30px 30px;
+  font-size: 120%;
+  font-weight: lighter;
+  >li {
+    // padding: 13px 15px;
+    border-top: 1px solid lighten($ColorSecond,40%);
+    // color: lighten(#FFA500,15%);
+    >div {
+      // background-color: gray;
+      >a{
+        padding: 15px 15px;
+        // color: lighten(#FFA500,15%);
+        color: lighten(#666,15%);
+        display: block;
+        // color: lighten($ColorMain,1%);
+        text-shadow:0px 0px 1px lighten(#666,25%);
+        position: relative;
+        &[data-total]{
+          &::after{
+            display: inline-block;
+            padding: 1px 15px;
+            content: attr(data-total);
+            background-color: lighten(#666,10%);
+            // background-color: lighten($ColorMain,1%);
+            border-radius: 50px;
+            font-size: 80%;
+            color: #fff;
+            position: absolute;
+            right: 0;
+          }
+        }
+        &:active{
+          color: darken($ColorMain,30%);
+        }
+      }
+      >p{
+        padding: 10px 15px;
+        font-size: 80%;
+      }
+      &.active{
+        >a{
+          color: lighten($ColorMain,1%);
+        }
+      }
+    }
+    &:first-child{
+      border-top: 0;
+    }
+  }
+}

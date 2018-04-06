@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <title>Scriptive</title>
+  <link rel="api" href="http://api.example.com/"/>
+  <link rel="icon" href="img/icon.png" type="image/png"/>
+  <!-- <link rel="stylesheet" href="css/style.splash.css"> -->
+  <!-- <link rel="stylesheet" href="font/scriptive.css"> -->
+  <link rel="stylesheet" href="css/style.css">
+  <script src="lib/scriptive.min.js"></script>
+  <script src="lib/filestorage.min.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    app.document({
+      config:{
+        Execute:[{'metalink':['api']}]
+      },
+      ready:function(){
+        // this.config.msg.info = document.querySelector("li#msg");
+      }
+    });
+  </script>
+</head>
+<body>
+  <div id="screen">
+    <div>
+      <h1 title="1.0.3">Scriptive</h1>
+    </div>
+    <div>
+      <p>April 8, 2017</p>
+    </div>
+    <div>
+      <ol>
+        <li id="msg" title="...">a moment please!</li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>
