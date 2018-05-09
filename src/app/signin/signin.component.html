@@ -1,0 +1,45 @@
+<div class="s-wn hd">
+  <ul class="scMenu justBack">
+    <li class="icon-left" (tap)="panel.goBack()">
+      <p>Signin</p>
+    </li>
+  </ul>
+</div>
+<div class="s-wn sb tpfixed" (panstart)="panel.dragStart($event)" (pan)="panel.drag($event)" (panend)="panel.dragEnd()" (pancancel)="panel.dragCancel()">
+  <form class="user" #formCtrl="ngForm" (ngSubmit)="signInWithEmail()">
+    <div>
+      <label>E-mail address</label>
+      <input type="email" [(ngModel)]="userEmail" name="email" placeholder="E-mail">
+    </div>
+    <div>
+      <label>Password</label>
+      <input type="password" [(ngModel)]="userPassword" name="password" placeholder="Password">
+    </div>
+    <div>
+      <input value="Signin" type="submit">
+    </div>
+    <div>
+      <p *ngIf="userMessage" id="messageContainer">{{ userMessage }}</p>
+    </div>
+    <div>
+      <p>
+        <a class="icon-gplus external" (click)="signInWithGoogle()">Signin with Google account</a>
+      </p>
+      <p>
+        <a class="icon-facebook external" (click)="signInWithFacebook()">Signin with Facebook account</a>
+      </p>
+      <p>
+        <a class="icon-github external signInWithGithub">Signin with Github account</a>
+      </p>
+      <p>
+        <a class="icon-twitter external signInWithTwitter">Signin with Twitter account</a>
+      </p>
+      <p>
+        <a routerLink="/fgpwd" routerLinkActive="active" class="external">Forgot password</a>
+      </p>
+      <p>
+        <a routerLink="/signup" routerLinkActive="active" class="external">Signup</a>
+      </p>
+    </div>
+  </form>
+</div>

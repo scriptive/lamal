@@ -1,0 +1,262 @@
+app-root{
+  >div{
+    // position: absolute; width: 100%; height: 100%;overflow: hidden;
+    position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+    // NOTE: require for #screen
+    z-index: 2;
+    &.scriptive{
+      z-index: 1;overflow: hidden;
+      &.inactive{
+        &::before{
+          content: " ";
+          display: block;
+          background-color: rgba(0,0,0,.04);
+          position: absolute;top: 0; right: 0; bottom: 0; left: 0;
+          z-index: 8;
+        }
+      }
+      div.sc-w0{
+        position: inherit;
+        top: 0;
+        bottom: 0;
+        // left: 0;
+        // right: 0;
+        background-color: $ColorBackground;
+        div.s-wn{
+          position: absolute;
+          width: 100%;
+          // NOTE: all container
+          &.hd{
+            // NOTE: header
+            height: $HeightBar;
+            >ul {
+              &.scMenu{
+                display:table;
+                // width: 100%;
+                height: 100%;
+                >li {
+                  vertical-align: middle;
+                  display: table-cell;
+                  text-align: center;
+                  // width: 60px;
+                  // max-width: 60px;
+                  &:first-child, &:last-child{
+                    // min-width: 60px;
+                  }
+                  &:first-child{
+
+                  }
+                  &:last-child{
+
+                  }
+                  &#lmD{
+                    // max-width: 50px;
+                    width:100%;
+                    // text-shadow:1px 0px 1px lighten(#ccc,30%);
+                    &:empty {
+                      &[data-title]{
+                        &::before{
+                          content: attr(data-title);
+                          display: block;
+                          overflow: hidden;
+                          text-overflow:ellipsis;
+                          white-space: nowrap;
+                          color: darken(#ccc,20%);
+                        }
+                      }
+                    }
+                    input {
+                      // border: 1px solid darken(#ccc,1%);
+                      border: 0px;
+                      line-height: 22px;
+                      width: 96%;
+                      padding: 7px 2%;
+                      outline: 0;
+                      font-size: 97%;
+                      border-radius: 3px;
+                      -webkit-border-radius:3px;
+                      -webkit-appearance: none;
+                      background-color: lighten(#ccc,13%);
+                      -webkit-tap-highlight-color: rgba(0,0,0,0);
+                      // @include box-shadow(inset, 0px, 0px, 1px, 1px, lighten($ColorSecond,30%));
+                      &:focus{
+                        background-color: lighten(#ccc,17%);
+                        // background-color: #fff;
+                        @include box-shadow(inset, 0px, 0px, 1px, 1px, lighten($ColorSecond,30%));
+                      }
+                    }
+                  }
+                  &[class]{
+                    &::before{
+                      font-size: 130%;
+                      padding: 2px;
+                      color: lighten($ColorMain,1%);
+                      font-weight: lighter;
+                      text-shadow:1px 1px 1px lighten(#ccc,15%);
+                    }
+
+                    &:active, &:focus, &:hover{
+                      -webkit-tap-highlight-color: rgba(0,0,0,0);
+                      &::before{
+                        color: lighten(#666,20%);
+                        // text-shadow:0px 0px 1px lighten(red,20%);
+                      }
+                    }
+                    &.active {
+                      &::before{
+                        color: red;
+                      }
+                    }
+                  }
+                }
+                &.justFixs{
+                  width: 100%;
+                  >li {
+                    width: 60px;
+                    max-width: 60px;
+                    &:first-child, &:last-child{
+                      min-width: 60px;
+                      // width: 50px;
+                    }
+                  }
+                }
+                &.justBack{
+                  width:auto;
+                  >li{
+                    // background-color: gray;
+                    &::before{
+                      // background-color: blue;
+                    }
+                    >p{
+                      display: inline-block;
+                      vertical-align: text-bottom;
+                      overflow: hidden;
+                      text-overflow:ellipsis;
+                      white-space: nowrap;
+                      color: darken(#666,20%);
+                      // background-color: red;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          &.sb {
+            // NOTE: scrollbar container
+            top:0;
+            bottom: 0;
+            box-sizing: border-box;
+            overflow: auto;
+            overflow-x: auto;
+            -moz-overflow: auto;
+            // -webkit-overflow-scrolling: auto;
+            -webkit-overflow-scrolling: touch;
+            // height: 100%;
+            max-height: 100%;
+            max-width: 100%;
+            &::-webkit-scrollbar-track {
+              background-color:transparent;
+            }
+            &::-webkit-scrollbar {
+              width: 7px;
+              background-color:transparent;
+            }
+            &::-webkit-scrollbar-thumb {
+              // border-radius: 2px 0 0 2px;
+              border-radius: 0px;
+              // -webkit-box-shadow: 0 0 1px rgba(0,0,0,.1);
+              background-color: lighten($ColorSecond,35%);
+            }
+            &.tpfixed{
+              top: $HeightBar;
+            }
+            &.btfixed{
+              // bottom: $HeightStatus;
+            }
+          }
+          // &:last-child{
+          //   top: $HeightBar;
+          //   bottom: 0;
+          //   // bottom: $HeightStatus;
+          //   // left: 0;
+          //   // right: 0;
+          //   // max-height: calc(100% - 70px);
+          //   // background-color:#ccc;
+          //   overflow: auto;
+          // }
+        }
+        &.panel{
+          width: $WidthPanel;
+          overflow: hidden;
+          @include user-select();
+          // width: 100%;
+          // max-width: $WidthPanel;
+          // background-color: lighten(#ccc,13%);
+          // background-color:#fff;
+          // NOTE: moved to application's css
+          @import "panel.Interface";
+        }
+        &.main{
+          @include box-shadow(0px, 0px, 5px,5px, rgba(0,0,0,.19));
+          left:0;right: 0;
+          z-index: 7;
+          @import "main.Interface";
+        }
+        &.notify{
+          background-color: rgba(255, 255, 255, 0.6);
+          text-align: center;
+          vertical-align: middle;
+          z-index: 9;
+          left: 0;
+          right: 0;
+          @include user-select();
+          display: none;
+          @import "notify.Interface";
+        }
+      }
+    }
+    // NOTE: screen appended to application's css
+    // @import "screen.Splash";
+  }
+}
+
+// NOTE: iOS
+div.scriptive{
+  // border-top: $HeightStatus solid #000;
+  &::before{
+    // top:-$HeightStatus; left: 0; right: 0;
+    // background-color:darken($ColorBackground,1%);
+    // border-bottom: 1px solid darken($ColorBackground,5%);
+    // @include box-shadow(inset, 0px, 1px, 1px,0px, rgba(0,0,0,.19));
+  }
+  >div{
+    >div{
+      &.sb{
+        // bottom: $HeightStatus;
+      }
+    }
+  }
+}
+div{
+}
+ul {
+  list-style: none;
+  li {
+  }
+  @import "ul.Interface.user";
+  // @import "ul.Interface.home";
+  // @import "ul.Interface.category";
+  // @import "ul.Interface.song";
+  // @import "ul.Interface.lyric";
+  // @import "ul.Interface.empty";
+}
+form{
+  @import "form.Interface.user";
+  @import "form.Interface.editor";
+}
+@media #{$media-mobile} {
+}
+@media #{$media-tablet} {
+}
+@media #{$media-desktop} {
+}

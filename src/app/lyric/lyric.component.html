@@ -1,0 +1,48 @@
+<div class="s-wn hd">
+  <ul class="scMenu justBack">
+    <li class="icon-left" (tap)="panel.goBack()">
+      <p>Lyric</p>
+    </li>
+  </ul>
+</div>
+<div class="s-wn sb tpfixed" (panstart)="panel.dragStart($event)" (pan)="panel.drag($event)" (panend)="panel.dragEnd()" (pancancel)="panel.dragCancel()">
+  <ul class="song">
+    <li *ngFor="let post of testPosts | async;">
+      {{post | json}}
+    </li>
+    <li *ngFor="let post of posts | async;" [class.active]="post.viewToggle">
+      <div>
+        <p class="posts">
+          <span *ngIf="userEdition > 5" class="userName">{{post.userName}}</span>
+          <span *ngIf="userEdition > 5" class="userEdition">{{post.userEdition}}</span>
+          <span *ngIf="userVote > 0" class="userVote">{{post.userVote}}</span>
+          <span *ngIf="post.editAble"  (click)="delete(post.idDoc)" >Delete</span>
+          <a *ngIf="post.editAble" [routerLink]="['/editor']" [queryParams]="{id: post.idDoc}">Edit</a>
+        </p>
+        <!-- <a [attr.data-chord]="chord(post)" [class.hasChord]="hasChord(post)" [routerLink]="['/lyric']" [queryParams]="{lyric: post.idDoc}">{{post.metaTitle}}</a> -->
+        <p class="title" [attr.data-chord]="chord(post)" [class.hasChord]="hasChord(post)" (click)="view(post)">
+          {{post.srcKind.oth}} {{post.metaTitle}}
+        </p>
+        <p class="meta">
+          <span *ngIf="post.metaArtist" class="artist icon-artist">{{post.metaArtist}}</span>
+          <span *ngIf="post.metaWriter" class="writer icon-writer">{{post.metaWriter}}</span>
+          <span *ngIf="post.metaAlbum" class="album icon-cd">{{post.metaAlbum}}</span>
+          <span *ngIf="post.metaYear" class="year icon-year">{{post.metaYear}}</span>
+        </p>
+        <!-- <p *ngIf="!post.viewToggle" class="lyric">{{snap(post)}}</p> -->
+        <div *ngIf="post.viewToggle"  class="lyric">
+          <div *ngFor="let verse of post.lyric;" [ngClass]="verse.isChorus?'chorus':'verse'">
+            <p *ngFor="let paragraph of verse.context;" [innerHTML]="showChord(paragraph)"></p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <!-- <ng-template #postEmpty>
+    <div class="">
+      content here...
+    </div>
+  </ng-template> -->
+  <div *ngIf="postPrevious" (click)="goPrevious()">Previous</div>
+  <div *ngIf="postNext" (click)="goNext()">Next</div>
+</div>

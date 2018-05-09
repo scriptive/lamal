@@ -1,0 +1,54 @@
+<div class="s-wn hd">
+  <ul class="scMenu justBack">
+    <li class="icon-left"  (tap)="panel.goBack()">
+      <p>Profile</p>
+    </li>
+  </ul>
+</div>
+<div class="s-wn sb tpfixed" (panstart)="panel.dragStart($event)" (pan)="panel.drag($event)" (panend)="panel.dragEnd()" (pancancel)="panel.dragCancel()">
+  <ul class="user">
+    <li>
+      <img class="profile" [class.available]="authService.user.photoURL" alt="{{ (authService.user | async)?.displayName }}" [attr.src]="(authService.user | async)?.photoURL">
+      <!-- <img class="profile" [class.available]="authService.user.photoURL" alt="{{ (authService.user | async)?.displayName }}" src="{{ (authService.user | async)?.photoURL }}"> -->
+    </li>
+    <li style="display:none">
+      <h1 *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.email }}!</h1>
+      <code>
+        var userPhoto = $('img').addClass('profile').attr('alt',user.displayName);
+        if (user.photoURL)   userPhoto.addClass('available').attr('src',user.photoURL);
+      </code>
+    </li>
+    <li>
+      <p class="userEmail">{{ authService.user.email }}</p>
+    </li>
+    <li>
+      <a class="signOut" (click)="authService.signout()">Signout</a>
+    </li>
+    <li>
+      <a class="emailVerified" [class.active]="authService.user.emailVerified" (click)="sendEmailVerification()">E-mail verification</a>
+    </li>
+    <li>
+      <a *ngIf="!updateEmailForm" (click)="updateEmail()">update E-mail</a>
+      <form *ngIf="updateEmailForm" #formCtrl="ngForm" (ngSubmit)="updateEmailSubmit()">
+        <input type="text" [(ngModel)]="userEmail" name="userEmail" placeholder="E-mail">
+        <button class="icon-show-tips" type="submit"></button>
+      </form>
+    </li>
+    <li>
+      <a *ngIf="!updatePasswordForm" (click)="updatePassword()">update Password</a>
+      <form *ngIf="updatePasswordForm" #formCtrl="ngForm" (ngSubmit)="updatePasswordSubmit()">
+        <input type="text" [(ngModel)]="userPassword" name="userPassword" placeholder="Password">
+        <button class="icon-show-tips" type="submit"></button>
+      </form>
+    </li>
+    <li>
+      <a *ngIf="!updateNameForm" (click)="updateName()">update Name</a>
+      <form *ngIf="updateNameForm" #formCtrl="ngForm" (ngSubmit)="updateNameSubmit()">
+        <input type="text" [(ngModel)]="userName" name="userName" placeholder="Username">
+        <button class="icon-show-tips" type="submit"></button>
+      </form>
+    </li>
+    <li style="display:none"><a (click)="notifyPopup('just Notify')">just Notify</a></li>
+    <li style="display:none"><a (click)="notifyConfirm('confirm Notify')">confirm Notify</a></li>
+  </ul>
+</div>

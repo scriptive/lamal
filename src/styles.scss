@@ -1,0 +1,12 @@
+@import "style/root.Style";
+
+span.abcd{
+  display: inline-block;
+  position: absolute;
+  top: -5px;
+  // left: -5px;
+  text-transform: capitalize;
+  // color:$ColorMain;
+  color: red;
+  font-size: 50%;
+}

@@ -1,0 +1,53 @@
+&.active{
+  display: block;
+}
+>div {
+  >div{
+    background-color: #fff;
+    // background-color: lighten(#ccc,19%);
+    @include box-shadow(0px, 0px, 1px,1px, lighten(#666,15%));
+    // @include box-shadow(0px, 1px, 2px,1px, $ColorMain);
+    max-width: 350px;
+    // padding: 5%;
+    padding: 7px;
+    margin: 2px auto;
+    border-radius: 3px;
+    >div {
+      padding: 10px;
+      &.msg{
+
+      }
+      &.action{
+        >div{
+          // display: none;
+          display: inline-block;
+          cursor: pointer;
+          padding:3px 10px;
+          font-size: 100%;
+          border-radius: 100px;
+          background-color: lighten($ColorMain,10%);
+          border: 1px solid lighten($ColorMain,1%);
+          color: #fff;
+          text-shadow:0px 1px 1px darken(#666,7%);
+          // &.active{
+          //   display: inline-block;
+          // }
+          // &:empty {
+          //   &[data-title] {
+          //     &::after{
+          //       content:attr(data-title);
+          //     }
+          //   }
+          // }
+          &.confirm{}
+          &.cancel{
+            background-color: lighten($ColorMain,15%);
+          }
+          &:active{
+            background-color: darken($ColorMain,5%);
+          }
+        }
+      }
+    }
+  }
+}

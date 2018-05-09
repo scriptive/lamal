@@ -1,0 +1,23 @@
+&.overlay{
+  div.sb {
+    &::before{
+      position: absolute;
+      content: '';
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: 4;
+    }
+  }
+}
+div.s-wn {
+  &.hd {
+    z-index: 5;
+    @include user-select();
+  }
+  &.sb {
+    z-index: 3;
+    border-top: 1px solid lighten(#ccc,1%);
+    >ul{
+      // display: none;
+    }
+  }
+}

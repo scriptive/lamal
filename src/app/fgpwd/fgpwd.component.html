@@ -1,0 +1,40 @@
+<div class="s-wn hd">
+  <ul class="scMenu justBack">
+    <li class="icon-left"  (tap)="panel.goBack()">
+      <p>Reset Password</p>
+    </li>
+  </ul>
+</div>
+<div class="s-wn sb tpfixed" (panstart)="panel.dragStart($event)" (pan)="panel.drag($event)" (panend)="panel.dragEnd()" (pancancel)="panel.dragCancel()">
+  <!-- <form class="user" method="POST" name="fgpwd">
+    <div>
+      <p>E-mail</p><input value="" type="text" name="email"></div>
+    <div><input value="Reset Password" type="submit"></div>
+    <div>
+      <p id="messageContainer"></p>
+    </div>
+    <div>
+      <p><a class="external" routerLink="/signin" routerLinkActive="active">Signin</a><span> .... </span><a class="external" routerLink="/signup" routerLinkActive="active">Signup</a></p>
+    </div>
+  </form> -->
+  <form class="user" #formCtrl="ngForm" (ngSubmit)="sendPasswordResetEmail()">
+    <div>
+      <label>E-mail address</label>
+      <input type="email" [(ngModel)]="userEmail" name="email" placeholder="E-mail">
+    </div>
+    <div>
+      <input value="Reset Password" type="submit">
+    </div>
+    <div>
+      <p *ngIf="userMessage" id="messageContainer">{{ userMessage }}</p>
+    </div>
+    <div>
+      <p>
+        <a class="external" routerLink="/signup" routerLinkActive="active">Signup</a>
+      </p>
+      <p>
+        <a routerLink="/signin" routerLinkActive="active" class="external">Signin</a>
+      </p>
+    </div>
+  </form>
+</div>

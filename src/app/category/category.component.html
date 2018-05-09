@@ -1,0 +1,18 @@
+<div class="s-wn hd">
+  <ul class="scMenu justBack">
+    <li class="icon-left"  (tap)="panel.goBack()">
+      <p>Category</p>
+    </li>
+  </ul>
+</div>
+<div class="s-wn sb tpfixed" (panstart)="panel.dragStart($event)" (pan)="panel.drag($event)" (panend)="panel.dragEnd()" (pancancel)="panel.dragCancel()">
+  <ul class="abc">
+      <li *ngFor="let post of posts | async;">
+        <div [class.active]="post.idDoc==dataService.idCategory">
+          <!-- <a [attr.data-total]="post.total" [routerLink]="['/song']" [queryParams]="{ category: post.idDoc}">{{post.name}}</a> -->
+          <a [attr.data-total]="post.total" [routerLink]="['/lyric',post.idDoc]">{{post.name}}</a>
+          <p *ngIf="post.desc">{{post.desc}}</p>
+        </div>
+      </li>
+  </ul>
+</div>

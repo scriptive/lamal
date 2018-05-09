@@ -1,0 +1,59 @@
+@import 'root.Configuration';
+@import 'font.Face';
+html{
+  height:100%;
+  -ms-touch-action: manipulation; touch-action: manipulation;
+  &.landscape{}
+  &.portrait{}
+}
+// COMMON
+// .cursor-hand{cursor:pointer;}
+// .cursor-default{cursor:default;}
+// .ellipsis{text-overflow:ellipsis;overflow:hidden;max-width:10px;}
+// .collapse-separate{border-collapse:separate;border-spacing:1px;}
+// .box-shadow{@include box-shadow(0px, 0px, 0px, 10px, #c5c5c5);}
+// .transparent{zoom:1;@include opacity(0.5);}
+// @include box-shadow(0px, 1px, 0px, 0px, #fff);
+// @include text-shadow(0px, 1px, 1px, #fff);
+// @include user-select();
+// @media #{$media-mobile} {}
+// @media #{$media-tablet} {}
+// @media #{$media-desktop} {}
+img{
+    border:none;
+}
+a, span{
+  text-decoration:none; outline:none;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+}
+*{
+  padding:0;margin:0;
+}
+
+form{
+  input{
+    &[type="checkbox"]{
+      &:disabled{
+      }
+    }
+  }
+  textarea{}
+  select{}
+  button{}
+}
+textarea{}
+button{}
+body {
+  @extend html; font-family:$Font; color:$Color;font-size:$FontSize; background-color: $ColorBackground;overflow: hidden;
+  @import "root.Interface";
+}
+
+@media #{$media-mobile} {
+}
+@media #{$media-tablet} {
+}
+@media #{$media-desktop} {
+}
+

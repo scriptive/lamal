@@ -1,0 +1,213 @@
+@import "../../style/root.Configuration";
+ul.song{
+  @include user-select();
+  padding: 20px 2px;
+  // font-size: 100%;
+  font-weight: lighter;
+  &:blank{
+    background-color: red;
+  }
+  >li {
+    // @include box-shadow(inset, 0px, 1px,1px, 1px, lighten(#ccc,1%));
+    // background-color: lighten(#ccc,19.5%);
+    border-top: 1px solid lighten($ColorSecond,40%);
+    // @include text-shadow(0px, 1px, 1px, #fff);
+    // background-color: lighten(#ccc,15%);
+    border-radius: 4px;
+    padding:2% 1%;
+    // padding: 7px;
+    margin-top:7px;
+    &.active{
+      @include box-shadow(inset, 0px, 1px,1px, 1px, lighten(#ccc,1%));
+      background-color: lighten(#ccc,19.5%);
+      border-top: 1px solid transparent;
+    }
+    >div {
+      >p{
+        >span{
+          display: inline-block;
+        }
+        &.title{
+          padding: 10px 15px;
+          color: $Color;
+          display: block;
+          font-size: 130%;
+          position: relative;
+          text-transform: capitalize;
+          &[data-chord]{
+            &::after{
+              display: inline-block;
+              padding: 1px 5px;
+              content: attr(data-chord);
+              // background-color: lighten(#666,10%);
+              background-color: lighten($ColorMain,1%);
+              border-radius: 2px;
+              font-size: 70%;
+              color: #fff;
+              position: absolute;
+              right: 0;
+            }
+          }
+          &:hover, &:active{
+            color: darken($ColorMain,10%);
+          }
+        }
+        &.posts{
+          font-size: 70%;
+          >span{
+            // border-radius: 100px;
+            padding:2px 5px;
+            color: lighten(#666,10%);
+
+            &:first-child{}
+            &:last-child{}
+            &.postUser{
+              @include text-shadow(0px, 0px, 1px, #ccc);
+            }
+            &.postDate{
+              color: #666;
+            }
+            &.postEdition{
+              // background-color: darken($ColorMain,1%);
+              // background-color: lighten(#666,30%);
+              // color: #fff;
+              // margin-right: 2px;
+              // border: 1px solid #666;
+              @include box-shadow(inset, 0px, 1px,1px, 0px, lighten(#666,20%));
+              @include text-shadow(0px, 1px, 1px, #666);
+            }
+            &.postVote{
+              // background-color: lighten(#ccc,7%);
+              // @include text-shadow(0px, 1px, 1px, #666);
+              // background-color: lighten(#666,10%);
+              // color: #fff;
+            }
+          }
+        }
+        &.meta{
+          font-size: 90%;
+          >span{
+            border-radius: 3px;
+            padding:2px 5px;
+            color: lighten(#666,15%);
+            &:empty{
+              &::after{
+                content: 'NA';
+              }
+            }
+            &:first-child{}
+            &:last-child{}
+          }
+        }
+        &.lyric{
+          padding:7px 10px;
+          color: darken(#666,10%);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      >div.lyric{
+        position: relative;
+        padding:2% 1%;
+        // background-color: red;
+
+        >div{
+          position: inherit;
+          padding:1%;
+          >p{
+            >span{
+              display: inline-block;
+              text-transform: capitalize;
+              // color:$ColorMain;
+              color: red;
+              font-size: 50%;
+            }
+          }
+          &.chord{
+            // line-height: 1em;
+            // font-size: 1em;
+            text-transform: capitalize;
+            color:$ColorMain;
+            p{
+              display: inline-block;
+              background-color: $ColorMain;
+              color: #fff;
+              padding: 1px 7px;
+              // border-radius: 3px 1px 3px 1px;
+              border-radius: 2px;
+            }
+            div{
+              span{
+                margin-left: 2px;
+                padding: 3px;
+              }
+            }
+          }
+          &.chorus{
+            // padding-left: 10%;
+            padding-left: 5%;
+            // @include text-shadow(0px, 1px, 1px, #ccc);
+            color: #666;
+            &:before{
+              // content: attr(title);
+              position: absolute;
+              left: 7%;
+              color: red;
+            }
+          }
+          &.verse{
+
+          }
+          p{
+            position: inherit;
+            // line-height: 1.3em;
+            // font-size: 1.1em;
+            // font-size: calc(0.6vw + 0.8em);
+            // font-size:calc(1vw + 50%);
+            padding: 1px; margin: 1px;
+            &:hover{
+              // @include text-shadow(0px, 1px, 0px, #666);
+              color: darken(#666,25%);
+            }
+            // span{
+            //   position: inherit;
+            //   top: -1.0em;
+            //   font-size: 0.7em;
+            //   // top: -1.3em;
+            //   // font-size: 0.6em;
+            //   line-height: 0.9em;
+            //   width: 0;
+            //   overflow:visible;
+            //   &[data-chord]{
+            //     &:empty{
+            //       &:after{
+            //         display: inline-block;
+            //         border-radius: 2px;
+            //         padding: 1px 2px;
+            //         // content: attr(data-chord);
+            //         // background-color: lighten($ColorMain,20%);
+            //         // color: #fff;
+            //       }
+            //     }
+            //   }
+            // }
+          }
+        }
+      }
+
+    }
+    &:first-child{
+      border-top: 0;
+    }
+    &.active{
+      >div{
+        >p{
+          &.title{
+            color: lighten($ColorMain,1%);
+          }
+        }
+      }
+    }
+  }
+}

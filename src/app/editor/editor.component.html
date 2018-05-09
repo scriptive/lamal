@@ -1,0 +1,86 @@
+<div class="s-wn hd">
+  <ul class="scMenu justBack">
+    <li class="icon-left"  (tap)="panel.goBack()">
+      <p>Editor</p>
+    </li>
+  </ul>
+</div>
+<div class="s-wn sb tpfixed" (panstart)="panel.dragStart($event)" (pan)="panel.drag($event)" (panend)="panel.dragEnd()" (pancancel)="panel.dragCancel()">
+  <form class="editor"  #formCtrl="ngForm" (ngSubmit)="post()">
+    <div class="lyric">
+      <textarea name="lyric" [(ngModel)]="postDoc.metaLyric"></textarea>
+    </div>
+    <div class="info" [ngClass]="{'active': isMetaVisible }">
+      <p>
+        <span (click)="isMetaVisible = !isMetaVisible;">Meta</span>
+      </p>
+      <div *ngIf="isMetaVisible" class="provide">
+        <p>
+          <span>Artist</span>
+          <input type="text" name="metaArtist" [(ngModel)]="postDoc.metaArtist">
+        </p>
+        <p>
+          <span>Writer</span>
+          <input type="text" name="metaWriter" [(ngModel)]="postDoc.metaWriter">
+        </p>
+        <p>
+          <span>Album</span>
+          <input type="text" name="metaAlbum" [(ngModel)]="postDoc.metaAlbum">
+        </p>
+        <p>
+          <span>Year</span>
+          <input type="text" name="metaYear" [(ngModel)]="postDoc.metaYear">
+        </p>
+      </div>
+    </div>
+
+    <div class="info" [ngClass]="{'active': istypeCategory }">
+      <p>
+        <span (click)="istypeCategory = !istypeCategory;">Type</span>
+      </p>
+      <div *ngIf="istypeCategory" class="choose">
+        <p *ngFor="let item of typeCategory | async;">
+          <input type="radio" name="kind" id="{{item.idDoc}}" value="{{item.idDoc}}" [(ngModel)]="postDoc.srcType">
+          <label for="{{item.idDoc}}">{{item.name}}</label>
+          <!-- post.srcKind[item.group]??? -->
+        </p>
+      </div>
+    </div>
+
+    <div class="info" [ngClass]="{'active': islangCategory }">
+      <p>
+        <span (click)="islangCategory = !islangCategory;">Lang</span>
+      </p>
+      <div *ngIf="islangCategory" class="choose">
+        <p *ngFor="let item of langCategory | async;">
+          <input type="radio" name="srcLang" id="{{item.group}}" value="{{item.idDoc}}" [(ngModel)]="postDoc.srcLang">
+          <label for="{{item.group}}">{{item.name}}</label>
+          <!-- post.srcKind[item.group]??? [checked.checked]="postDoc.srcLang == item.idDoc" -->
+        </p>
+
+      </div>
+    </div>
+
+    <div class="info" [ngClass]="{'active': iskindCategory }">
+      <p>
+        <span (click)="iskindCategory = !iskindCategory;">Kind</span>
+      </p>
+      <div *ngIf="iskindCategory" class="provide">
+        <p *ngFor="let item of kindCategory | async;">
+          <span>{{item.name}}</span>
+          <input type="text" name="{{item.group}}" value="{{postDoc.srcKind[item.group]}}" [(ngModel)]="postDoc.srcKind[item.group]">
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <input type="submit" value="Post">
+    </div>
+    <div>
+      <p id="messageContainer">
+        {{postMessage}}
+        <!-- <span class="animate-spin icon-loading"></span> -->
+      </p>
+    </div>
+  </form>
+</div>

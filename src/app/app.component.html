@@ -1,0 +1,46 @@
+<div class="scriptive">
+  <!-- <div class="sc-w0 notify active" id="lNt">
+    <div>
+      <div>
+        <div class="msg">Hello world {{ testMessage }}</div>
+        <div class="action">
+          <div class="ok active" data-title="Ok" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Just ok</div>
+          <div class="cancel" data-title="Cancel"></div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div *ngIf="notifyService.msg" class="sc-w0 notify active" id="lNt">
+    <div>
+      <div>
+        <div class="msg">{{ notifyService.msg }}</div>
+        <div class="action">
+          <div *ngIf="notifyService.yes" (click)="notifyService.confirm()" class="confirm">{{notifyService.yes}}</div>
+          <div *ngIf="notifyService.no" (click)="notifyService.cancel()"  class="cancel">{{notifyService.no}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sc-w0 panel" id="lPl" data-offset="left">
+    <div class="s-wn hd"></div>
+    <div class="s-wn sb tpfixed">
+      <ul class="lmList">
+        <li *ngFor="let page of pages"
+          [class.active]="'/'+page.path == router.url">
+          <a *ngIf="page.data" routerLink="{{page.path}}" routerLinkActive="active">{{page.data.name}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="sc-w0 panel" id="lPr" data-offset="right">
+    <div class="s-wn hd"></div>
+    <div class="s-wn sb tpfixed">
+      <ul class="lmList">
+        <li>...{{apple}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="sc-w0 main" id="lCm" data-left="lPl" data-right="lPr">
+    <router-outlet></router-outlet>
+  </div>
+</div>

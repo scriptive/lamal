@@ -1,0 +1,44 @@
+<div class="s-wn hd">
+  <ul class="scMenu justFixs">
+    <li class="icon-panel" (tap)="panel.go('lPl')" [class.active]="panel.active.left"></li>
+    <li id="lmD" data-title="Testing"><form class="search"><input type="q" id="sch" value=""></form></li>
+    <li class="icon-lookup" (tap)="panel.go('lPr')" [class.active]="panel.active.right"></li>
+  </ul>
+</div>
+<div class="s-wn sb tpfixed" (panstart)="panel.dragStart($event)" (pan)="panel.drag($event)" (panend)="panel.dragEnd()" (pancancel)="panel.dragCancel()">
+  <ul>
+    <li style="display:none">
+      <a href="https://itnext.io/step-by-step-complete-firebase-authentication-in-angular-2-97ca73b8eb32">https://itnext.io/step-by-step-complete-firebase-authentication-in-angular-2-97ca73b8eb32</a>
+    </li>
+    <li class="abc">
+      <div *ngIf="authService.user | async;then userContent else guestContent"></div>
+      <ng-template #userContent>
+        <h1 class="logo">{{messageActive}}</h1>
+        <p>
+          <a routerLink="/dashboard" routerLinkActive="active">{{ (authService.user | async)?.email }}</a>
+        </p>
+        <p>
+          ...update profile?
+        </p>
+      </ng-template>
+      <ng-template #guestContent>
+        <h1 class="logo">Are you</h1>
+        <p>
+          <a routerLink="/signup">signing up</a>...
+        </p>
+        <p>
+          ...<a routerLink="/signin">ready to signin?</a>
+        </p>
+      </ng-template>
+
+      <p>
+        <a routerLink="/category">Category</a>
+      </p>
+      <p>
+        <a routerLink="/lyric">Lyric</a>
+      </p>
+    </li>
+
+  </ul>
+</div>
+
